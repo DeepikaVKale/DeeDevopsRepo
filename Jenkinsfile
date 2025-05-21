@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages{
-        stage('Build' & 'Test'){
+        stage('Build & Test'){
             stages{
                 stage('compile'){
                     steps {

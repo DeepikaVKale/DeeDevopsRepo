@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages{
-        stage('Build' & 'Test'){
+        stage('Build' && 'Test'){
             stages{
                 stage('compile'){
                     steps {
@@ -11,12 +11,9 @@ pipeline {
                 stage('unit test'){
                     steps {
                         echo "unit testing..."
+                    }
                 }
             }
-
-        }
-
-
         }
         stage('deploy'){
             steps{

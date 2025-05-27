@@ -36,9 +36,10 @@ pipeline{
                 }
         }
         stage('Apply or Destroy'){
-        when{
-            expression{
-                return params.terraformAction == 'apply'  || params.terraformAction == 'destroy'
+            when{
+                expression{
+                    return params.terraformAction == 'apply'  || params.terraformAction == 'destroy'
+                }
             }
         }
         steps{
@@ -49,7 +50,6 @@ pipeline{
                     sh "pwd;cd Project-1/; terraform destroy -auto-approve"
                 }
             }
-        }
-        }    
+        }  
     }
 }

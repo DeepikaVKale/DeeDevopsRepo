@@ -50,7 +50,10 @@ pipeline{
                     if (params.terraformAction == 'apply'){
                         sh "pwd;cd Project-1/; terraform apply -input=false tfplan"
                     } else if(params.terraformAction == 'destroy'){
-                        sh "pwd;cd 'Project 1'/; terraform destroy -auto-approve"
+                        sh '''
+                            cd "Project 1"
+                            terraform destroy -auto-approve"
+                        '''
                     }
                 }
             }  

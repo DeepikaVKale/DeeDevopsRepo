@@ -21,6 +21,7 @@ resource "aws_subnet" "subnet_1" {
     tags = {
         Name = "subnet-1"
     }
+}
 
 #create subnet-2
 resource "aws_subnet" "subnet_2" {
@@ -34,7 +35,7 @@ resource "aws_subnet" "subnet_2" {
 }
 
 #creating igw
-resource = "aws_internet_gateway" "igw" {
+resource "aws_internet_gateway" "igw" {
     vpc_id = aws_vpc.myvpc.id
 }
 

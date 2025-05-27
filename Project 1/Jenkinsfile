@@ -14,7 +14,7 @@ pipeline{
             steps{
                 script {
                     dir("terraform"){
-                        gi branch: 'terraform-new',url:'https://github.com/DeepikaVKale/DeeDevopsRepo.git'
+                        git branch: 'terraform-new',url:'https://github.com/DeepikaVKale/DeeDevopsRepo.git'
                     }
                 }
             }

@@ -27,13 +27,13 @@ pipeline{
             }
         }
         stage('approval'){
-                steps{
-                    script {
-                        def plan = readFile 'Project-1/tfplan.txt'
-                        input message: "Do you want to proceed with terraform action..?"
-                        parameters: [text(name:'plan', description: 'Can you review yor code one more time',defaultValue: plan)]
-                    }
+            steps{
+                script {
+                    def plan = readFile 'Project-1/tfplan.txt'
+                    input message: "Do you want to proceed with terraform action..?"
+                    parameters: [text(name:'plan', description: 'Can you review yor code one more time',defaultValue: plan)]
                 }
+            }
         }
         stage('Apply or Destroy'){
             when{

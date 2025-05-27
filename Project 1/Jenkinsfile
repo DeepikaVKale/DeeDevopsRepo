@@ -41,15 +41,15 @@ pipeline{
                     return params.terraformAction == 'apply'  || params.terraformAction == 'destroy'
                 }
             }
-        }
-        steps{
-            script{
-                if (params.terraformAction == 'apply'){
-                    sh "pwd;cd Project-1/; terraform apply -input=false tfplan"
-                } else if(params.terraformAction == 'destroy'){
-                    sh "pwd;cd Project-1/; terraform destroy -auto-approve"
+            steps{
+                script{
+                    if (params.terraformAction == 'apply'){
+                        sh "pwd;cd Project-1/; terraform apply -input=false tfplan"
+                    } else if(params.terraformAction == 'destroy'){
+                        sh "pwd;cd Project-1/; terraform destroy -auto-approve"
+                    }
                 }
-            }
-        }  
-    }
+            }  
+        }
+    }  
 }

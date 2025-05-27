@@ -21,15 +21,15 @@ pipeline{
         }
         stage('Plan'){
             steps{
-                sh 'pwd;cd Project-1/; terraform init'
-                sh 'pwd;cd Project-1/; terraform plan -out tfplan'
-                sh 'pwd;cd Project-1/; terraform plan -no-color tfplan >> tfplan.txt'
+                sh 'pwd;cd "Project 1"/; terraform init'
+                sh 'pwd;cd "Project 1"/; terraform plan -out tfplan'
+                sh 'pwd;cd "Project 1"/; terraform plan -no-color tfplan >> tfplan.txt'
             }
         }
         stage('approval'){
             steps{
                 script {
-                    def plan = readFile 'Project-1/tfplan.txt'
+                    def plan = readFile '"Project 1"/tfplan.txt'
                     input message: "Do you want to proceed with terraform action..?"
                     parameters: [text(name:'plan', description: 'Can you review yor code one more time',defaultValue: plan)]
                 }
@@ -46,7 +46,7 @@ pipeline{
                     if (params.terraformAction == 'apply'){
                         sh "pwd;cd Project-1/; terraform apply -input=false tfplan"
                     } else if(params.terraformAction == 'destroy'){
-                        sh "pwd;cd Project-1/; terraform destroy -auto-approve"
+                        sh "pwd;cd "Project 1"/; terraform destroy -auto-approve"
                     }
                 }
             }  

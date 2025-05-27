@@ -19,13 +19,17 @@ pipeline{
                 }
             }
         }
-        stage('Plan'){
-            steps{
-                sh 'pwd;cd "Project 1"/; terraform init'
-                sh 'pwd;cd "Project 1"/; terraform plan -out tfplan'
-                sh 'pwd;cd "Project 1"/; terraform plan -no-color tfplan >> tfplan.txt'
+        stage('Plan') {
+            steps {
+                sh '''
+                    cd "Project 1"
+                    terraform init
+                    terraform plan -out=tfplan
+                    terraform show -no-color tfplan >> tfplan.txt
+                '''
             }
         }
+
         stage('approval'){
             steps{
                 script {

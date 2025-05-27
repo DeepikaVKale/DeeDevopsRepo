@@ -48,7 +48,10 @@ pipeline{
             steps{
                 script{
                     if (params.terraformAction == 'apply'){
-                        sh "pwd;cd Project-1/; terraform apply -input=false tfplan"
+                        sh '''
+                            cd "Project 1"
+                            terraform apply -input=false tfplan
+                        '''
                     } else if(params.terraformAction == 'destroy'){
                         sh '''
                             cd "Project 1"

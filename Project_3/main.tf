@@ -1,14 +1,14 @@
 provider "aws" {
-    region = "us-east-1"
+    region = "ap-southeast-1"
     access_key = ""
     secret_key = ""
 }
 
 resource "aws_instance" "ec2" {
-    ami = "ami-0953476d60561c955"
+    ami = "ami-01938df366ac2d954"
     instance_type = "t2.medium"
     security_groups = [ "default" ]
-    key_name = "project"
+    key_name = "singapore-key"
     root_block_device {
       volume_size = 20
       volume_type = "gp3"
@@ -17,7 +17,7 @@ resource "aws_instance" "ec2" {
     tags = {
       Name = "Jenkins-admin-server"
     }
-    user_data = file("server-script.sh")
+    #user_data = file("server-script.sh")
 }
 
 output "PublicIP" {

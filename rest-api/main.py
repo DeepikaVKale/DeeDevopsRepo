@@ -2,11 +2,11 @@ from flask import *
 
 app = Flask(__name__)
 
-@app.route('/hello', methods=['GET'])
-def hello world():
+@app.route('/hello', methods=["GET"])
+def helloworld():
         if(request.method == 'GET'):
-                data = {"data":"Hello World"}
-                return jasonify(data)
+           data = {"data":"Hello World"}
+           return jasonify(data)
 
 
 if __name__ == '__main__'

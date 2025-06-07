@@ -11,5 +11,5 @@ output "vpc_id" {
 }
 
 output "subnet_ids" {
-  value = aws_subnet.eks_subnet[*]
+  value = aws_subnet.eks_subnet[*].id
 }

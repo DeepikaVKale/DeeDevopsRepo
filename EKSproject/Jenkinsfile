@@ -11,7 +11,44 @@ pipeline {
     stages {
         stage('checkout') {
             steps{
-                
+                script {
+                    dir("terraform") {
+                        git branch: 'infra', url:'https://github.com/DeepikaVKale/DeeDevopsRepo.git'
+                    }
+                }
+
+            }
+        }
+        stage('Plan') {
+            steps {
+                sh 'pwd;cd EKSproject/ ; terraform init'
+                sh "pwd;cd EKSproject/ ; terraform plan -out tfplan"
+                sh 'pwd;cd EKSproject/ ; terraform show -no-color tfplan > tfplan.txt'
+            }
+        }
+        stage ('Approval') {
+            steps {
+                script {
+                    def plan = readFile 'eks/tfplan.txt'
+                    input message: "Do you want to proceed with the Terraform action?",
+                    parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
+                }
+            }
+        }
+        stage ('Apply or Destroy') {
+            when {
+                expression {
+                    return params.terraformAction == 'apply' || params.terraformAction == 'destroy'
+                }
+            }
+            steps {
+                script {
+                    if (params.terraformAction == 'apply') {
+                        sh "pwd;cd EKSproject/ ; terraform apply -input=false tfplan"
+                    } else if (params.terraformAction == 'destroy') {
+                        sh "pwd;cd EKSproject/ ; terraform destroy -auto-approve"
+                    }
+                }
             }
         }
     }

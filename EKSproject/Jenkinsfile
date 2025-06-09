@@ -13,7 +13,7 @@ pipeline {
             steps{
                 script {
                     dir("terraform") {
-                        git branch: 'infra', url:'https://github.com/DeepikaVKale/DeeDevopsRepo.git'
+                        git branch: 'kubernetes', url:'https://github.com/DeepikaVKale/DeeDevopsRepo.git'
                     }
                 }
 

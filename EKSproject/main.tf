@@ -151,7 +151,7 @@ resource "aws_iam_role" "eks_node_group_role" {
     {
       "Effect" : "Allow",
       "Principal" : {
-        "Service" : "eks.amazonaws.com"
+        "Service" : "ec2.amazonaws.com"
       },
       "Action" : "sts:AssumeRole"
     }

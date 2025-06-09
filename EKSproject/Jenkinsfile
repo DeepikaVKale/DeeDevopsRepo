@@ -16,7 +16,6 @@ pipeline {
                         git branch: 'kubernetes', url:'https://github.com/DeepikaVKale/DeeDevopsRepo.git'
                     }
                 }
-
             }
         }
         stage('Plan') {
@@ -29,7 +28,7 @@ pipeline {
         stage ('Approval') {
             steps {
                 script {
-                    def plan = readFile 'eks/tfplan.txt'
+                    def plan = readFile 'EKSproject/tfplan.txt'
                     input message: "Do you want to proceed with the Terraform action?",
                     parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
                 }

@@ -127,7 +127,7 @@ resource "aws_iam_role" "eks_cluster_role" {
     {
       "Effect" : "Allow",
       "Principal" : {
-        "Service" : eks.amazonaws.com"
+        "Service" : "eks.amazonaws.com"
       },
       "Action" : "sts:AssumeRole"
     }
@@ -151,7 +151,7 @@ resource "aws_iam_role" "eks_node_group_role" {
     {
       "Effect" : "Allow",
       "Principal" : {
-        "Service" : eks.amazonaws.com"
+        "Service" : "eks.amazonaws.com"
       },
       "Action" : "sts:AssumeRole"
     }

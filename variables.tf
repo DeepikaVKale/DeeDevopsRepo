@@ -41,7 +41,7 @@ variable "cluster_version" {
 }
 
 variable "node_groups" {
-  decription = "EKS node group configuration"
+  description = "EKS node group configuration"
   type = map(object({
     instance_types = list(string)
     capacity_type  = string

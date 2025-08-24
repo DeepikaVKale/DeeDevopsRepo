@@ -61,7 +61,7 @@ variable "key_name" {
 variable "security_groups" {
     description = "List of security groups to associate with the EC2 instance"
     type        = list(string)
-    default     = ["sg-08a00db328cdf6f70"] #Provide your security group ID
+    default     = module.vpc.aws_security_group.ec2_sg.id #Provide your security group ID
 }
 
 variable "volume_size" {
@@ -82,8 +82,8 @@ variable "instance_name" {
     default     = "TF-server"
 }
 
-variable "user_data_file" {
-    description = "Path to the user data script file"
-    type        = string
-    default     = "docker-script.sh"
+variable "aws_security_group_ids" {
+  description = "List of security group IDs"
+  type        = list(string)
+  default     = []
 }

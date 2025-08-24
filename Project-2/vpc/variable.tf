@@ -28,4 +28,7 @@ variable "subnet_2_azs" {
     type        = list(string)
 }
 
-
+variable "aws_security_group_ids" {
+  description = "List of security group IDs"
+  type        = list(string)
+}

@@ -20,6 +20,7 @@ module "vpc" {
     subnet_1_azs = var.subnet_1_azs
     subnet_2_cidrs = var.subnet_2_cidrs
     subnet_2_azs = var.subnet_2_azs
+    aws_security_group_ids = var.aws_security_group_ids
 }
 
 module "ec2" {
@@ -29,9 +30,8 @@ module "ec2" {
     instance_type    = var.instance_type
     subnet_id        = module.vpc.subnet_1_ids[0]
     key_name         = var.key_name
-    security_groups  = var.security_groups
+    security_groups  = module.vpc.aws_security_group_ids
     volume_size      = var.volume_size
     volume_type      = var.volume_type
     instance_name    = var.instance_name
-    user_data_file   = var.user_data_file
 }

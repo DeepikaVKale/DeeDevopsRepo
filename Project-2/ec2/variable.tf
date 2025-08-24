@@ -40,9 +40,4 @@ variable "instance_name" {
     type        = string
 }
 
-variable "user_data_file" {
-    description = "Path to the user data script file"
-    type        = string
-    default     = "server-script.sh"
-}
 

@@ -3,7 +3,7 @@ resource "aws_instance" "ec2" {
     instance_type = var.instance_type
     subnet_id     = var.subnet_id
     key_name      = var.key_name
-    security_groups = var.security_groups
+    security_groups = module.vpc.aws_security_group_ids
 
     root_block_device {
         volume_size           = var.volume_size

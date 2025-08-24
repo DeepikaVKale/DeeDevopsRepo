@@ -12,3 +12,8 @@ output "subnet_2_ids" {
   description = "List of Subnet-2 IDs"
   value       = aws_subnet.subnet_2[*].id
 }
+
+output "aws_security_group_ids" {
+  description = "List of security group IDs"
+  value       = [aws_security_group.ec2_sg.id]
+}

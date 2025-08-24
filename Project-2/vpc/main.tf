@@ -66,3 +66,9 @@ resource "aws_route_table_association" "public_subnet_associations_2" {
     subnet_id = aws_subnet.subnet_2[count.index].id
     route_table_id = aws_route_table.public_route_table.id
 }
+
+resource "aws_security_group" "ec2_sg" {
+  name        = "ec2_sg"
+  description = "Security group for EC2"
+  vpc_id      = aws_vpc.vpc.id  # Must match subnet's VPC
+}

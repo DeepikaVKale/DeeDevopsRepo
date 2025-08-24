@@ -52,12 +52,6 @@ variable "instance_type" {
     default     = "t2.micro"
 }
 
-variable "subnet_id" {
-    description = "Subnet ID where the EC2 instance will be launched"
-    type        = string
-    default     = "aws_subnet.subnet_1[*].id" #Provide Subnet ID after creating VPC and Subnets
-}
-
 variable "key_name" {
     description = "Key pair name for SSH access to the EC2 instance"
     type        = string

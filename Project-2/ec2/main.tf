@@ -14,6 +14,4 @@ resource "aws_instance" "ec2" {
     tags = {
         Name = "${var.instance_name}"
     }
-
-    user_data = file(var.user_data_file)
 }

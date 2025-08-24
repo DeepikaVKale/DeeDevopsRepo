@@ -22,7 +22,7 @@ module "vpc" {
     subnet_2_azs = var.subnet_2_azs
 }
 
-module "ec2_instance" {
+module "ec2" {
     source = "./ec2"
 
     ami_id           = var.ami_id

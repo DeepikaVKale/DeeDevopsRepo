@@ -15,5 +15,5 @@ output "subnet_2_ids" {
 
 output "PublicIP" {
     description = "Public IP of the EC2 instance"
-    value       = module.ec2.public_ip
+    value       = module.ec2.PublicIP
 }

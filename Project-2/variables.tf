@@ -13,7 +13,7 @@ variable "vpc_cidr" {
 variable "vpc_name" {
     description = "Name of the VPC"
     type        = string
-    default     = "my-vpc"
+    default     = "TF-vpc"
 }
 
 variable "subnet_1_cidrs" {

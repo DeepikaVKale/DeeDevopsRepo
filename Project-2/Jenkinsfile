@@ -1,5 +1,3 @@
-#Install jenkins and terraform in server 
-
 pipeline{
     parameters{
         choice(name: 'terraformAction',choices: ['apply', 'destroy'],description: 'choose your terraform action to perform')

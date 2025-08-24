@@ -12,7 +12,7 @@ provider "aws" {
 }
 
 module "vpc" {
-    source = "./Project-2/vpc"
+    source = "./vpc"
 
     vpc_cidr = var.vpc_cidr
     vpc_name = var.vpc_name
@@ -23,7 +23,7 @@ module "vpc" {
 }
 
 module "ec2_instance" {
-    source = "./Project-2/ec2"
+    source = "./ec2"
 
     ami_id           = var.ami_id
     instance_type    = var.instance_type

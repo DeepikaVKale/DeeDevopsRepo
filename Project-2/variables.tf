@@ -58,12 +58,6 @@ variable "key_name" {
     default     = "singapore-key" #Provide your key pair name
 }
 
-variable "security_groups" {
-    description = "List of security groups to associate with the EC2 instance"
-    type        = list(string)
-    default     = module.vpc.aws_security_group.ec2_sg.id #Provide your security group ID
-}
-
 variable "volume_size" {
     description = "Size of the root block device in GB"
     type        = number

@@ -1,21 +1,21 @@
 provider "aws" {
-    region = "ap-southeast-1"
+    region = ""
     access_key = ""
     secret_key = ""
 }
 
 resource "aws_instance" "ec2" {
-    ami = "ami-01938df366ac2d954"
-    instance_type = "t2.medium"
+    ami = "ami-0731becbf832f281e"
+    instance_type = "t3a.xlarge"
     security_groups = [ "default" ]
-    key_name = "singapore-key"
+    key_name = "project"
     root_block_device {
-      volume_size = 20
+      volume_size = 30
       volume_type = "gp3"
       delete_on_termination = true
     }
     tags = {
-      Name = "Jenkins-admin-server"
+      Name = "admin-server"
     }
     #user_data = file("server-script.sh")
 }

@@ -14,12 +14,16 @@ pipeline {
         }
         stage('Code Compile'){
             steps{
-                sh 'mvn compile'
+                dir ('DProject-1'){
+                  sh 'mvn compile'
+                }
             }
         }
         stage('Code Package'){
             steps{
-                sh 'mvn clean install'
+                dir ('DProject-1'){
+                  sh 'mvn clean install'
+                }
             }
         }
         stage('Build and tag'){

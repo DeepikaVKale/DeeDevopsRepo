@@ -28,14 +28,18 @@ pipeline {
         }
         stage('Build and tag'){
             steps{
-                sh 'docker build -t deepikavkale/webapp:1 .'
+                dir ('DProject-1'){
+                  sh 'docker build -t deepikavkale/webapp:1 .'
+                }
             }
         }
         stage('Containerisation'){
             steps{
-                sh '''
-                docker run -it -d --name c1 -p 9008:8080 deepikavkale/webapp:1
-                '''
+                dir ('DProject-1'){
+                  sh '''
+                  docker run -it -d --name c1 -p 9008:8080 deepikavkale/webapp:1
+                  '''
+                }
             }
         }
         stage('Login to Docker Hub') {

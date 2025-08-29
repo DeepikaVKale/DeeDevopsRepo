@@ -14,14 +14,12 @@ pipeline {
         }
         stage('Code Compile'){
             steps{
-                dir ('webapp')
-                    sh 'mvn compile'
+                sh 'mvn compile'
             }
         }
         stage('Code Package'){
             steps{
-                dir ('webapp')
-                    sh 'mvn clean install'
+                sh 'mvn clean install'
             }
         }
         stage('Build and tag'){

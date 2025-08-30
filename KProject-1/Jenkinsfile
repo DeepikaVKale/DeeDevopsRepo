@@ -5,7 +5,7 @@ pipeline {
         DOCKER_TAG = "20250802"
         IMAGE_NAME = "deepikavkale/fullstack"
         AWS_REGION = "ap-northeast-1"
-        CLUSTER_NAME = "Eks-cluster"
+        CLUSTER_NAME = "eks-cluster"
     }
 
     tools {

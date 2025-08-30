@@ -85,7 +85,7 @@ pipeline {
         stage('Deploy To Kubernetes') {
             steps {
                 dir ('KProject-1') {
-                    withKubeConfig(caCertificate: '', clusterName: 'eks-cluster', contextName: '', credentialsId: 'kube', namespace: 'project', restrictKubeConfigAccess: false, serverUrl: 'https://9D87C8DAFF3E2D50BC939906D298E953.gr7.us-east-1.eks.amazonaws.com') {
+                    withKubeConfig(caCertificate: '', clusterName: 'eks-cluster', contextName: '', credentialsId: 'kube', namespace: 'project', restrictKubeConfigAccess: false, serverUrl: 'https://0548C1D665BEAF52872DCA77CBFA4077.gr7.ap-northeast-1.eks.amazonaws.com') {
                         sh "kubectl get pods -n project"
                         sh "kubectl apply -f deployment.yml -n project"
                     }
@@ -95,7 +95,7 @@ pipeline {
 
         stage('Verify the Deployment') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'eks-cluster', contextName: '', credentialsId: 'kube', namespace: 'project', restrictKubeConfigAccess: false, serverUrl: 'https://9D87C8DAFF3E2D50BC939906D298E953.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'eks-cluster', contextName: '', credentialsId: 'kube', namespace: 'project', restrictKubeConfigAccess: false, serverUrl: 'https://0548C1D665BEAF52872DCA77CBFA4077.gr7.ap-northeast-1.eks.amazonaws.com') {
                     sh "kubectl get pods -n project"
                     sh "kubectl get svc -n project"
                 }

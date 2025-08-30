@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
       - name: devops-app-c5
-        image: manjukolkar007/test-dev:latest
+        image: deepikavkale/scroll-web:latest
         ports:
         - containerPort: 80
---- 
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -31,4 +31,3 @@ spec:
     port: 80
     targetPort: 80
     nodePort: 30326
-
